@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scratchpaedia</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <main role="main" class="container-fluid">
+        <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, class: "alert alert-info") %>
+        <% end %>
+        <div class="main">
+          <div class="row justify-content-start">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm-8">
+              <%= yield %>
+            </div>
+            <div class="col-sm">
+              <!-- <%=render 'articles/tag_cloud' %> -->
+            </div>
+          </div>
+        </div>
+    </main>
+  </body>
+</html>

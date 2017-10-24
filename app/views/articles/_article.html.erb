@@ -1,0 +1,11 @@
+<tr>
+  <td><%= link_to article.title, article %></td>
+  <td><%= article.user.humanize %></td>
+  <% if article.user == current_user %>
+    <td> <%= article.aasm_state %>   </td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+  <% else %>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  <% end %>
+</tr>
