@@ -18,3 +18,41 @@ textarea {
   padding: 4rem 2rem;
   background-color: #f9f9f9;
 }
+.notice {
+  padding: 4rem 2rem;
+}
+.notifications{
+  overflow: visible;
+}
+.blog-masthead{
+  margin-bottom: 3rem;
+  background-color: #428bca;
+  -webkit-box-shadow: inset 0 -.1rem .25rem rgba(0,0,0,.1);
+  box-shadow: inset 0 -.1rem .25rem rgba(0,0,0,.1);
+}
+
+.blog-main{
+  width: 100%;
+}
+.field_with_errors{
+  color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+.nav-link.active {
+    color: #fff;
+}
+
+.nav-link {
+    position: relative;
+    padding: 1rem;
+    font-weight: 500;
+    color: #cdddeb;
+}
+.nav-link {
+    display: block;
+    padding: .5em 1em;
+}
+
+.search-articles{
+  border-color: #cdddeb !important;
+}

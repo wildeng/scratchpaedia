@@ -31,8 +31,9 @@ class ArticlesController < ApplicationController
       @article.save_draft
     end
     if @article.save
-      redirect_to @article, notice: 'Created article.'
+      redirect_to @article, notice: 'Your post has been saved'
     else
+      flash.now[:error] = 'Title cannot be blank'
       render :new
     end
   end
@@ -48,6 +49,7 @@ class ArticlesController < ApplicationController
     if @article.update_attributes(allowed_params)
       redirect_to @article, notice: 'Updated article.'
     else
+      flash.now[:error] = 'Title cannot be blank'
       render :edit
     end
   end

@@ -9,6 +9,8 @@ class Article < ApplicationRecord
 
   acts_as_taggable
 
+  validates :title, presence: true
+
   # setting up basic state machine
   aasm do
     state :published, initial: true

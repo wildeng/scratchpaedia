@@ -10,20 +10,18 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <main role="main" class="container-fluid">
-        <% flash.each do |name, msg| %>
-            <%= content_tag(:div, msg, class: "alert alert-info") %>
-        <% end %>
-        <div class="main">
-          <div class="row justify-content-start">
-            <div class="col-sm">
-            </div>
-            <div class="col-sm-8">
-              <%= yield %>
-            </div>
-            <div class="col-sm">
-              <!-- <%=render 'articles/tag_cloud' %> -->
-            </div>
+    <main role="main" class="container">
+        <div class="notifications">
+          <%= flash_messages %>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+          </div>
+          <div class="col-sm-8 blog-main">
+            <%= yield %>
+          </div>
+          <div class="col-sm">
+            <!-- <%=render 'articles/tag_cloud' %> -->
           </div>
         </div>
     </main>
