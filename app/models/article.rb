@@ -1,12 +1,15 @@
 # model for articles
 class Article < ApplicationRecord
   include AASM
+  # setting up postgres full text search
   include PgSearch
   pg_search_scope :search_by_full_text,\
                   against: %i[title content],\
                   associated_against: { tags: :name }
 
   acts_as_taggable
+
+  # setting up basic state machine
   aasm do
     state :published, initial: true
     state :draft

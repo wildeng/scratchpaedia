@@ -8,6 +8,7 @@ module ApplicationHelper
     end
   end
 
+  # setting options for redcarpet and markdown
   def markdown(text)
     coderayified = CodeRayify.new(filter_html: true, hard_wrap: true)
     options = {

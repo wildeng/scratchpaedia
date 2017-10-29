@@ -12,44 +12,84 @@ RSpec.describe ArticlesController, type: :controller do
 
       it 'can see her own articles both published and draft' do
         get :my_articles
-        response.should render_template :index
+        expect(response).to render_template :index
+        expect(assigns(:articles).empty?).to_not be(true)
+        expect(assigns(:articles).size).to eq(8)
       end
 
       it 'can edit her own article' do
+        article = User.first.articles.first
+        get :edit, params: { id: article.id }
+        expect(response).to render_template :edit
+      end
 
+      it 'can change article title' do
+        article = User.first.articles.first
+        title = 'My new fancy title'
+        patch :update, params: {
+          id: article.id,
+          route_to: { save: 'Save' },
+          article:
+            {
+              title: title,
+              content: article.content
+            }
+        }
+        expect(response).to redirect_to assigns(:article)
+        expect(assigns(:article).title).to eq(title)
+        expect(assigns(:article).aasm_state).to eq('published')
       end
 
       it 'cannot edit someone else article' do
-
+        article = Article.first
+        get :edit, params: { id: article.id }
+        expect(response.status).to eq(404)
       end
 
       it 'can create an article' do
-
+        get :new
+        expect(response.status).to eq(200)
+        expect(response).to render_template(:new)
       end
 
     end
 
     context 'with anonymous user' do
-      it 'should load only pusblished articles' do
+      create_published_anonymous_articles
 
-      end
-
-      it 'cannot edit any article' do
-
-      end
-    end
-
-    context 'with any user' do
       it 'should render the index' do
         get :index
         response.should render_template :index
       end
-      it 'can search an article by title-content' do
 
+      it 'can search an article by title-content' do
+        article = Article.first
+        get :search_articles, params: {
+          article: {
+            fulltext: article.title[0..3]
+          }
+        }
+        expect(response.status).to eq(200)
+        expect(response).to render_template :index
+        expect(assigns(:articles).size).to be > 0
       end
 
       it 'can search an article by tag' do
 
+      end
+
+      it 'should load only pusblished articles' do
+        get :index
+        expect(assigns(:articles).size).to eq(8)
+        assigns(:articles).each do |article|
+          expect(article.aasm_state).to eq('published')
+        end
+      end
+
+      it 'cannot edit any article' do
+        article = Article.first
+        get :edit, params: { id: article.id }
+        expect(response.status).to eq(302)
       end
     end
   end

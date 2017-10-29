@@ -1,7 +1,10 @@
 # main article controller
 class ArticlesController < ApplicationController
   protect_from_forgery prepend: true
-  before_action :authenticate_user!, except: %i[index show tagged_articles]
+  before_action :authenticate_user!, except: %i[
+    index show tagged_articles search_articles
+  ]
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
     @articles = Article.published_posts.paginate(page: params[:page])
@@ -70,5 +73,9 @@ class ArticlesController < ApplicationController
 
   def allowed_params
     params.require(:article).permit(:content, :title, :tag_list, :fulltext)
+  end
+
+  def record_not_found
+    render file: 'public/404.html', status: 404
   end
 end

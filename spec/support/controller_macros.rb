@@ -12,7 +12,11 @@ module ControllerMacros
   def create_published_anonymous_articles
     before(:each) do
       4.times do
-        FactoryBot.create(:article, aasm_state: 'published')
+        FactoryBot.create(
+          :article,
+          aasm_state: 'published',
+          tag_list: 'ruby,rails,rubocop'
+        )
       end
     end
   end

@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :articles
 
+  # The method takes name and surname to display them in a friendly mode
+  # @return [String]
   def humanize
     name.capitalize + ' ' + surname.capitalize
   end
