@@ -1,21 +1,21 @@
 <%=form_for @article do |f| %>
   <div class="form-group">
-    <%= f.label :title, 'Title' %><br />
+    <%= f.label :title, I18n.t('article.title') %><br />
     <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :content, 'Content' %><br />
+    <%= f.label :content, I18n.t('article.content') %><br />
     <%= f.text_area :content, rows: '15', class: 'form-control' %>
   </div>
   <div class='form-group'>
-    <%= f.label :tag_list, 'Tags (separated by commas)' %><br/>
+    <%= f.label :tag_list, I18n.t('article.tag') %><br/>
     <%= f.text_field :tag_list, class: 'form-control' %>
   </div>
   <div class='form-group'>
-    <%= f.submit 'Save', class: 'btn btn-primary',
+    <%= f.submit I18n.t('general.save'), class: 'btn btn-primary',
         name: 'route_to[save]'
      %>
-    <%= f.submit 'Save Draft', class: 'btn btn-primary',
+    <%= f.submit I18n.t('general.save_draft'), class: 'btn btn-primary',
         name: 'route_to[draft]'
     %>
   </div>

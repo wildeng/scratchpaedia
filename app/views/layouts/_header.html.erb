@@ -1,19 +1,19 @@
 <div class="blog-masthead">
   <div class="container">
     <nav class="nav blog-nav">
-      <a class="nav-link" href="<%= root_path%>">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<%= root_path%>"><%= I18n.t('menubar.home') %> <span class="sr-only">(current)</span></a>
       <% if current_user %>
-        <a class="nav-link" href="<%= destroy_user_session_path %>">Logout</a>
-        <a class="nav-link" href="<%= new_article_path %>">Add post</a>
-        <a class="nav-link" href="<%= articles_my_articles_path %>">My posts</a>
-        <a class="nav-link" href="<%= edit_user_registration_path %>">Password change</a>
+        <a class="nav-link" href="<%= destroy_user_session_path %>"><%= I18n.t('menubar.logout') %></a>
+        <a class="nav-link" href="<%= new_article_path %>"><%= I18n.t('menubar.add_article') %></a>
+        <a class="nav-link" href="<%= articles_my_articles_path %>"><%= I18n.t('menubar.my_posts') %></a>
+        <a class="nav-link" href="<%= edit_user_registration_path %>"><%= I18n.t('menubar.change_password') %></a>
       <% else %>
-        <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
-        <a class="nav-link" href="<%= new_user_registration_path %>">Register</a>
+        <a class="nav-link" href="<%= new_user_session_path %>"><%= I18n.t('menubar.login') %></a>
+        <a class="nav-link" href="<%= new_user_registration_path %>"><%= I18n.t('menubar.register') %></a>
       <% end %>
       <form action="<%= articles_search_articles_path %>" method="get" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" id="article_fulltext" name="article[fulltext]" type="text" placeholder="Search" aria-label="Search">
-        <input type="submit" class="btn btn-outline-primary my-2 my-sm-0 nav-link search-articles" type="submit" value="Search"/>
+        <input class="form-control mr-sm-2" id="article_fulltext" name="article[fulltext]" type="text" placeholder="<%= I18n.t('menubar.search') %>" aria-label="Search">
+        <input type="submit" class="btn btn-outline-primary my-2 my-sm-0 nav-link search-articles" type="submit" value="<%= I18n.t('menubar.search') %>"/>
       </form>
     </nav>
   </div>

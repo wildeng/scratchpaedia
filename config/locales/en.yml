@@ -30,4 +30,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  general:
+    edit: 'Edit'
+    save: 'Save'
+    save_draft: 'Save draft'
+  menubar:
+    home: 'Home'
+    logout: 'Sign out'
+    add_article: 'New article'
+    my_posts: 'My articles'
+    change_password: 'Password change'
+    login: 'Sign in'
+    register: 'Sign up'
+    search: 'Search'
+  article:
+    page_title: 'Articles'
+    author: 'Author'
+    title: 'Title'
+    content: 'Content'
+    tag: 'Tags (separated by commas)'
+    tag_list: 'tags'
