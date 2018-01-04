@@ -15,6 +15,7 @@ user.surname = 'Doe'
 user.password = 'changeme'
 user.password_confirmation = 'changeme'
 user.save!
+user.confirm
 
 Article.create! title: "Batman", user_id: user.id, content: <<-ARTICLE
 Batman is a fictional character created by the artist Bob Kane and writer Bill Finger. A comic book superhero, Batman first appeared in Detective Comics #27 (May 1939), and since then has appeared primarily in publications by DC Comics. Originally referred to as "The Bat-Man" and still referred to at times as "The Batman", he is additionally known as "The Caped Crusader", "The Dark Knight", and the "World's Greatest Detective," among other titles. (from Wikipedia)

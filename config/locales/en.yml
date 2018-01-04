@@ -40,7 +40,7 @@ en:
     add_article: 'New article'
     my_posts: 'My articles'
     change_password: 'Password change'
-    login: 'Sign in'
+    login: 'Login'
     register: 'Sign up'
     search: 'Search'
   article:

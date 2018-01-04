@@ -10,8 +10,39 @@
   .l { font-size: 1.8em; }
 }
 
+h1 a {
+    color: #FCA205;
+    font-family: 'Lobster';
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
+}
+
+body {
+  padding: 1em;
+}
+
 textarea {
   resize: none !important;
+}
+
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #fbb02d;
+    border-color: #007bff;
 }
 
 .main {
@@ -26,7 +57,8 @@ textarea {
 }
 .blog-masthead{
   margin-bottom: 3rem;
-  background-color: #428bca;
+  //background-color: #428bca;
+  background-color: #ff9400;
   -webkit-box-shadow: inset 0 -.1rem .25rem rgba(0,0,0,.1);
   box-shadow: inset 0 -.1rem .25rem rgba(0,0,0,.1);
 }
@@ -46,7 +78,9 @@ textarea {
     position: relative;
     padding: 1rem;
     font-weight: 500;
-    color: #cdddeb;
+    font-family: 'Lobster', cursive;
+    //color: #cdddeb;
+    color: #ffffff !important
 }
 .nav-link {
     display: block;
