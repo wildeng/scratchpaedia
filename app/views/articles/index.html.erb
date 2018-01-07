@@ -1,17 +1,9 @@
 <h1><%= I18n.t('article.page_title') %></h1>
 
-<table class="table table-striped">
-  <thead>
-    <th><%= I18n.t('article.title') %></th>
-    <th><%= I18n.t('article.author') %></th>
-    <th></th>
-    <th></th>
-  </thead>
-  <tbody>
-    <%= render @articles %>
-  </tbody>
-</table>
+<div class="post">
+  <%= render @articles %>
+</div>
 
 
 
-<%= will_paginate @articles %>
+<%= will_paginate @articles, page_links: false  %>

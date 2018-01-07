@@ -10,13 +10,17 @@
   .l { font-size: 1.8em; }
 }
 
+a {
+  font-family: 'Ubuntu';
+}
+
 h1 a {
     color: #FCA205;
-    font-family: 'Lobster';
+    font-family: 'Ubuntu';
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Ubuntu', cursive;
 }
 
 body {
@@ -78,7 +82,7 @@ textarea {
     position: relative;
     padding: 1rem;
     font-weight: 500;
-    font-family: 'Lobster', cursive;
+    font-family: 'Ubuntu', cursive;
     //color: #cdddeb;
     color: #ffffff !important
 }

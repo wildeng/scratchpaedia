@@ -34,6 +34,7 @@ en:
     edit: 'Edit'
     save: 'Save'
     save_draft: 'Save draft'
+    confirm: 'Are you sure?'
   menubar:
     home: 'Home'
     logout: 'Sign out'

@@ -31,4 +31,6 @@ class Article < ApplicationRecord
 
   scope :published_posts, -> { where(aasm_state: 'published') }
   scope :draft_posts, -> { where(aasm_state: 'draft') }
+
+  self.per_page = 4
 end

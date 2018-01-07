@@ -37,6 +37,7 @@ gem 'aasm'
 gem 'acts-as-taggable-on', '~> 4.0'
 # style using bootsrap
 gem 'bootstrap'
+gem 'font-awesome-rails'
 # pagination
 gem 'will_paginate'
 # markdown gem
