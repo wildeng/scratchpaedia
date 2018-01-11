@@ -14,7 +14,8 @@ RSpec.describe ArticlesController, type: :controller do
         get :my_articles
         expect(response).to render_template :index
         expect(assigns(:articles).empty?).to_not be(true)
-        expect(assigns(:articles).size).to eq(8)
+        # it only 4 because it's paged
+        expect(assigns(:articles).size).to eq(4)
       end
 
       it 'can edit her own article' do
@@ -74,13 +75,22 @@ RSpec.describe ArticlesController, type: :controller do
         expect(assigns(:articles).size).to be > 0
       end
 
-      it 'can search an article by tag' do
+      it 'return to index when asked for a reserved page' do
+        get :my_articles
+        expect(response).to redirect_to(new_user_session_path)
+      end
 
+      it 'shows an article' do
+        article = Article.where(aasm_state: 'published').first
+        get :show, params: {id: article.id}
+        expect(response.status).to eq(200)
+        expect(response).to render_template :show
       end
 
       it 'should load only pusblished articles' do
         get :index
-        expect(assigns(:articles).size).to eq(8)
+        # it only 4 because it's paged
+        expect(assigns(:articles).size).to eq(4)
         assigns(:articles).each do |article|
           expect(article.aasm_state).to eq('published')
         end

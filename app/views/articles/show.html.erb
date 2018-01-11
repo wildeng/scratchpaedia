@@ -1,3 +1,8 @@
-<h2><%= @article.title %></h2>
-</p><%= markdown(@article.content) %></p>
-<div><%= I18n.t('article.tag_list') %>: <%= @article.tag_list %></div>
+<div class="post-show">
+  <div class="post-title">
+    <h2><%= @article.title %></h2>
+  </div>
+  <hr>
+  </p><%= markdown(@article.content) %></p>
+  <div class="tag-list"><%= I18n.t('article.tag_list') %>: <%= @article.tag_list %></div>
+</div>

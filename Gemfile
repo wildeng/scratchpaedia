@@ -37,6 +37,7 @@ gem 'aasm'
 gem 'acts-as-taggable-on', '~> 4.0'
 # style using bootsrap
 gem 'bootstrap'
+gem 'jquery-rails'
 gem 'font-awesome-rails'
 # pagination
 gem 'will_paginate'
@@ -49,6 +50,7 @@ gem 'pg_search'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
   # Adds support for Capybara system testing and selenium driver

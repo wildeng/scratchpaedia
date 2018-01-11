@@ -1,16 +1,20 @@
-<h3> <%= link_to article.title, article %> </h3>
-<% if article.user == current_user %>
-  <h4> <%= article.aasm_state %> </h4>
-  <%= link_to edit_article_path(article)  do%>
-    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+<div class='post'>
+  <h3> <%= link_to article.title, article %> </h3>
+  <hr>
+  <% if article.user == current_user %>
+    <h4> <%= article.aasm_state %> </h4>
+    <%= link_to edit_article_path(article)  do%>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    <% end %>
+    <%= link_to article_path(article), method: :delete, data: {confirm: I18n.t('general.confirm')}  do%>
+      <i class="fa fa-times" aria-hidden="true"></i>
+    <% end %>
   <% end %>
-  <%= link_to article_path(article), method: :delete, data: {confirm: I18n.t('general.confirm')}  do%>
-    <i class="fa fa-times" aria-hidden="true"></i>
-  <% end %>
-<% end %>
-<p>
-  <%= truncate(article.content, length: 100, separator: ' ') do
-      link_to("More", article)
-    end
-  %>
-</p>
+  <p>
+    <%= truncate(article.content, length: 100, separator: ' ') do
+        link_to("More", article)
+      end
+    %>
+  </p>
+  <hr>
+</div>

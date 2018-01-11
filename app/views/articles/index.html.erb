@@ -1,9 +1,10 @@
 <h1><%= I18n.t('article.page_title') %></h1>
 
-<div class="post">
+<div class="post_list">
   <%= render @articles %>
 </div>
 
 
-
-<%= will_paginate @articles, page_links: false  %>
+<div class="flickr_pagination">
+  <%= will_paginate @articles %>
+</div>

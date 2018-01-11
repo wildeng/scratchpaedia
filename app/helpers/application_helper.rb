@@ -42,13 +42,13 @@ module ApplicationHelper
           message,
           class: "alert #{bootstrap_class_for(msg_type)} fade show"
         ) do
-          # concat content_tag(
-          #   :button,
-          #   'x',
-          #   class: 'close',
-          #   data: { dismiss: 'alert' },
-          #   aria: { label: 'Close' }
-          # )
+          concat content_tag(
+            :button,
+            'x',
+            class: 'close',
+            data: { dismiss: 'alert' },
+            aria: { label: 'Close' }
+          )
           concat message
         end
       )
