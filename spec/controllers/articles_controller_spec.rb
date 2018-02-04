@@ -10,6 +10,9 @@ RSpec.describe ArticlesController, type: :controller do
       create_logged_user_draft_articles
       create_logged_user_published_articles
 
+      let(:title) { 'Smack my bitch up' }
+      let(:content) { 'Prodigy released this song in November 1997' }
+
       it 'can see her own articles both published and draft' do
         get :my_articles
         expect(response).to render_template :index
@@ -26,7 +29,6 @@ RSpec.describe ArticlesController, type: :controller do
 
       it 'can change article title' do
         article = User.first.articles.first
-        title = 'My new fancy title'
         patch :update, params: {
           id: article.id,
           route_to: { save: 'Save' },
@@ -41,18 +43,87 @@ RSpec.describe ArticlesController, type: :controller do
         expect(assigns(:article).aasm_state).to eq('published')
       end
 
+      it 'can update an article state to draft' do
+        article = User.first.articles.first
+        patch :update, params: {
+                id: article.id,
+                route_to: { draft: 'Save draft' },
+                article:
+                  {
+                    title: 'new title',
+                    content: article.content
+                  }
+              }
+        expect(response).to redirect_to assigns(:article)
+        expect(assigns(:article).title).to eq('new title')
+        expect(assigns(:article).aasm_state).to eq('draft')
+      end
+
+      
+      it 'throws an error when updating and title is empty' do
+        article = User.first.articles.first
+        patch :update, params: {
+                id: article.id,
+                route_to: { save: 'Save' },
+                article:
+                  {
+                    title: '',
+                    content: article.content
+                  }
+              }
+        expect(response).to render_template(:edit)
+      end
+
       it 'cannot edit someone else article' do
         article = Article.first
         get :edit, params: { id: article.id }
         expect(response.status).to eq(404)
       end
 
-      it 'can create an article' do
+      it 'can create an empty article' do
         get :new
         expect(response.status).to eq(200)
         expect(response).to render_template(:new)
       end
 
+      it 'creates and saves her own draft article' do
+        post :create, params: {
+               route_to: { draft: 'Save draft' },
+               article:
+                 {
+                   title: title,
+                   article: content
+                 }
+             }
+        expect(response).to redirect_to assigns(:article)
+        expect(assigns(:article).title).to eq(title)
+        expect(assigns(:article).aasm_state).to eq('draft')
+      end
+
+      it 'creates and saves his own published article' do
+        post :create, params: {
+               route_to: { save: 'Save' },
+               article:
+                 {
+                   title: title,
+                   article: content
+                 }
+             }
+        expect(response).to redirect_to assigns(:article)
+        expect(assigns(:article).aasm_state).to eq('published')
+      end
+
+      it 'throws an error when title is blank' do
+        post :create, params: {
+               route_to: {save: 'Save'},
+               article:
+                 {
+                   title: '',
+                   article: content
+                 }
+             }
+        expect(response).to render_template(:new)
+      end
     end
 
     context 'with anonymous user' do
