@@ -10,8 +10,6 @@ Main characteristics:
 4. AASM state machine to manage post states
 5. Bootstrap styling
 
-Up to now it lacks internationalization ( coming soon ).
-
 To install it:
 
 * clone the project 
@@ -23,6 +21,6 @@ To install it:
 * run `Rake db:seed` for basic data and a basic user
 * run `Rails s` for running it in development mode
 
-If you want to do it in an easier way, after cloning the project and after setting up a `SECRET_KEY_BASE` environment variable needed by devise (more info here https://stackoverflow.com/questions/29187296/rails-production-how-to-set-secret-key-base), go to `scripts` folder and give execution permissions to `create_dev_test_prod.sh` script. The script will create dev, test and prod databases, seeding some data in them.
+If you want to do it in an easier way, after cloning the project, creating the secrets.yml file and after setting up a `SECRET_KEY_BASE` environment variable needed by devise (more info here https://stackoverflow.com/questions/29187296/rails-production-how-to-set-secret-key-base), go to `scripts` folder and give execution permissions to `create_dev_test_prod.sh` script. The script will create dev, test and prod databases, seeding some data in them.
 
 If you want to run it in production mode, after the installation remember to go to the `config\environments\production.rb`, look for a FIXME line and change it to meet your mailer configuration.
