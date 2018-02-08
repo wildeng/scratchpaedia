@@ -15,7 +15,9 @@ Up to now it lacks internationalization ( coming soon ) and some more features (
 To install it:
 
 * clone the project 
+* create a `SECRET_KEY_BASE` environment variable (read below for an how to)
 * run `bundle install`
+* create a `secrets.yml` in `config` folder using the provided `secrets_template.yml` 
 * run `Rake db:create`
 * run `Rake db:migrate`
 * run `Rake db:seed` for basic data and a basic user
