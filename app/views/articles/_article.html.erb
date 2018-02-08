@@ -12,7 +12,7 @@
   <% end %>
   <p>
     <%= truncate(article.content, length: 100, separator: ' ') do
-        link_to("More", article)
+        link_to(I18n.t('article.read_more'), article)
       end
     %>
   </p>

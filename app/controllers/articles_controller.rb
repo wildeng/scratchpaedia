@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     Article.find(params[:id]).destroy
-    flash[:success] = 'Article has been deleted'
+    flash[:success] = I18n.t('article.deleted')
     @articles = Article.published_posts.paginate(page: params[:page])
     render :index
   end
@@ -38,9 +38,9 @@ class ArticlesController < ApplicationController
       @article.save_draft
     end
     if @article.save
-      redirect_to @article, notice: 'Your post has been saved'
+      redirect_to @article, notice: I18n.t('article.saved')
     else
-      flash.now[:error] = 'Title cannot be blank'
+      flash.now[:error] = I18n.t('article.title_error')
       render :new
     end
   end
@@ -54,9 +54,9 @@ class ArticlesController < ApplicationController
       @article.save_draft
     end
     if @article.update_attributes(allowed_params)
-      redirect_to @article, notice: 'Your post has been updated'
+      redirect_to @article, notice: I18n.t('article.updated')
     else
-      flash.now[:error] = 'Title cannot be blank'
+      flash.now[:error] = I18n.t('article.title_error')
       render :edit
     end
   end
