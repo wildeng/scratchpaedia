@@ -3,6 +3,15 @@
     <h2><%= @article.title %></h2>
   </div>
   <hr>
+  <% if @article.user == current_user %>
+    <h4><span class="<%= @article.aasm_state %>"> <%= @article.aasm_state %> </span> </h4>
+    <%= link_to edit_article_path(@article)  do%>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    <% end %>
+    <%= link_to article_path(@article), method: :delete, data: {confirm: I18n.t('general.confirm')}  do%>
+      <i class="fa fa-times" aria-hidden="true"></i>
+    <% end %>
+  <% end %>
   </p><%= markdown(@article.content) %></p>
   <div class="tag-list"><%= I18n.t('article.tag_list') %>: <%= @article.tag_list %></div>
 </div>

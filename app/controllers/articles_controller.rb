@@ -22,6 +22,13 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.new
   end
 
+  def destroy
+    Article.find(params[:id]).destroy
+    flash[:success] = 'Article has been deleted'
+    @articles = Article.published_posts.paginate(page: params[:page])
+    render :index
+  end
+
   def create
     @article = current_user.articles.create(allowed_params)
     case route_to

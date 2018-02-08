@@ -10,7 +10,7 @@ Main characteristics:
 4. AASM state machine to manage post states
 5. Bootstrap styling
 
-Up to now it lacks internationalization ( coming soon ) and some more features (like editing from the show view).
+Up to now it lacks internationalization ( coming soon ).
 
 To install it:
 
