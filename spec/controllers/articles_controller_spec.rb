@@ -32,8 +32,10 @@ RSpec.describe ArticlesController, type: :controller do
         article_id = article.id
         delete :destroy, params: { id: article.id }
         expect(response).to render_template :index
-        expect { Article.find(article_id) }.to raise_exception(ActiveRecord::RecordNotFound)
-       end
+        expect { Article.find(article_id) }.to raise_exception(
+          ActiveRecord::RecordNotFound
+        )
+      end
 
       it 'can change article title' do
         article = User.first.articles.first
@@ -54,31 +56,30 @@ RSpec.describe ArticlesController, type: :controller do
       it 'can update an article state to draft' do
         article = User.first.articles.first
         patch :update, params: {
-                id: article.id,
-                route_to: { draft: 'Save draft' },
-                article:
-                  {
-                    title: 'new title',
-                    content: article.content
-                  }
-              }
+          id: article.id,
+          route_to: { draft: 'Save draft' },
+          article:
+            {
+              title: 'new title',
+              content: article.content
+            }
+        }
         expect(response).to redirect_to assigns(:article)
         expect(assigns(:article).title).to eq('new title')
         expect(assigns(:article).aasm_state).to eq('draft')
       end
 
-      
       it 'throws an error when updating and title is empty' do
         article = User.first.articles.first
         patch :update, params: {
-                id: article.id,
-                route_to: { save: 'Save' },
-                article:
-                  {
-                    title: '',
-                    content: article.content
-                  }
-              }
+          id: article.id,
+          route_to: { save: 'Save' },
+          article:
+            {
+              title: '',
+              content: article.content
+            }
+        }
         expect(response).to render_template(:edit)
       end
 
@@ -96,13 +97,13 @@ RSpec.describe ArticlesController, type: :controller do
 
       it 'creates and saves her own draft article' do
         post :create, params: {
-               route_to: { draft: 'Save draft' },
-               article:
-                 {
-                   title: title,
-                   article: content
-                 }
-             }
+          route_to: { draft: 'Save draft' },
+          article:
+            {
+              title: title,
+              article: content
+            }
+        }
         expect(response).to redirect_to assigns(:article)
         expect(assigns(:article).title).to eq(title)
         expect(assigns(:article).aasm_state).to eq('draft')
@@ -110,26 +111,26 @@ RSpec.describe ArticlesController, type: :controller do
 
       it 'creates and saves his own published article' do
         post :create, params: {
-               route_to: { save: 'Save' },
-               article:
-                 {
-                   title: title,
-                   article: content
-                 }
-             }
+          route_to: { save: 'Save' },
+          article:
+            {
+              title: title,
+              article: content
+            }
+        }
         expect(response).to redirect_to assigns(:article)
         expect(assigns(:article).aasm_state).to eq('published')
       end
 
       it 'throws an error when title is blank' do
         post :create, params: {
-               route_to: {save: 'Save'},
-               article:
-                 {
-                   title: '',
-                   article: content
-                 }
-             }
+          route_to: { save: 'Save' },
+          article:
+            {
+              title: '',
+              article: content
+            }
+        }
         expect(response).to render_template(:new)
       end
     end
@@ -161,7 +162,7 @@ RSpec.describe ArticlesController, type: :controller do
 
       it 'shows an article' do
         article = Article.where(aasm_state: 'published').first
-        get :show, params: {id: article.id}
+        get :show, params: { id: article.id }
         expect(response.status).to eq(200)
         expect(response).to render_template :show
       end

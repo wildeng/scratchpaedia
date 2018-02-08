@@ -9,6 +9,8 @@ AllCops:
     - !ruby/regexp /old_and_unused\.rb$/
     - 'Gemfile'
     - 'Gemfile.lock'
+    - 'test/**/*'
+    - 'bin/**/*'
 # Too short methods lead to extraction of single-use methods, which can make
 # the code easier to read (by naming things), but can also clutter the class
 Metrics/MethodLength:
@@ -16,7 +18,9 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
-  Max: 80
+  enabled: 80
+  Exclude:
+    - "**/*_spec.rb"
 Metrics/CyclomaticComplexity:
   Max: 20
 Metrics/ClassLength:
