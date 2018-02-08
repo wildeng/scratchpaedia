@@ -27,6 +27,14 @@ RSpec.describe ArticlesController, type: :controller do
         expect(response).to render_template :edit
       end
 
+      it 'can delete his own article' do
+        article = User.first.articles.first
+        article_id = article.id
+        delete :destroy, params: { id: article.id }
+        expect(response).to render_template :index
+        expect { Article.find(article_id) }.to raise_exception(ActiveRecord::RecordNotFound)
+       end
+
       it 'can change article title' do
         article = User.first.articles.first
         patch :update, params: {
