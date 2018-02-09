@@ -32,7 +32,7 @@ private/*.*
 
 # ignore config
 config/config.yml
-config/secrets.yml
+#config/secrets.yml
 
 # ignore rubymine
 .idea
