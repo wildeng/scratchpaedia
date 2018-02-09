@@ -42,14 +42,18 @@ describe ApplicationHelper do
     let(:content) { 'puts "string"' }
 
     it 'returns highlighted code' do
-      coderayfied = ApplicationHelper::CodeRayify.new(filter_html: true, hard_wrap: true)
+      coderayfied = ApplicationHelper::CodeRayify.new(
+        filter_html: true, hard_wrap: true
+      )
       formatted = coderayfied.block_code(content, 'ruby')
       # checking if the formatted string includes class CodeRay
       expect(formatted.include?('<div class="CodeRay">')).to eq(true)
     end
 
     it 'does not include highlighted code if no language defined' do
-      coderayfied = ApplicationHelper::CodeRayify.new(filter_html: true, hard_wrap: true)
+      coderayfied = ApplicationHelper::CodeRayify.new(
+        filter_html: true, hard_wrap: true
+      )
       formatted = coderayfied.block_code(content, '')
       # checking if the formatted string is the same as the input
       expect(formatted).to eq('puts "string"')

@@ -65,7 +65,7 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # FIXME: THIS CONFIG ARE NEEDED TO GENERATE AND SEED SOME DATA FROM A SCRIPT, CHANGE AND USE YOUR OWN!
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'https://scratchpaedia.herokuapp.com' }
   config.action_mailer.raise_delivery_errors = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

@@ -4,8 +4,8 @@ module ApplicationHelper
   class CodeRayify < Redcarpet::Render::HTML
     # overriding RedCarpet block_code callback
     def block_code(code, language)
-       return code if language.blank?
-       CodeRay.scan(code, language).div
+      return code if language.blank?
+      CodeRay.scan(code, language).div
     end
   end
 
