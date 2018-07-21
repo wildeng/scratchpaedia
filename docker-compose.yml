@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgresdb:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_ROOT_PASSWORD: "postgres"
+  rails:
+    # Relative path to Dockerfile.
+    # Docker will read the Dockerfile automatically
+    depends_on:
+      - "postgresdb"
+    command: bundle exec rake db:create
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    links:
+      - postgresdb
+    build: .
+    # This is the one that makes the magic
+    volumes:
+    - "./:/var/www"
