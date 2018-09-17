@@ -48,6 +48,9 @@ gem 'coderay'
 # searching
 gem 'pg_search'
 
+# Use twitter security Gem
+gem 'secure_headers'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'simplecov', :require => false, :group => :test
