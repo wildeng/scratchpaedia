@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.2.1'
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -34,7 +34,9 @@ gem 'devise'
 # state machine
 gem 'aasm'
 # tags to identify articles
-gem 'acts-as-taggable-on', '~> 4.0'
+#gem 'acts-as-taggable-on', '~> 4.0'
+# Swicth to temporary fork for 5.2 issues
+gem 'acts-as-taggable-on', git: 'https://github.com/Fodoj/acts-as-taggable-on.git', branch: 'rails-5.2'
 # style using bootsrap
 gem 'bootstrap'
 gem 'jquery-rails'
@@ -57,6 +59,7 @@ gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
   # Adds support for Capybara system testing and selenium driver
+  gem 'brakeman'
   gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
   gem 'faker'
