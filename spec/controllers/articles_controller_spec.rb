@@ -138,9 +138,9 @@ RSpec.describe ArticlesController, type: :controller do
     context 'with anonymous user' do
       create_published_anonymous_articles
 
-      it 'should render the index' do
+      it 'renders the index' do
         get :index
-        response.should render_template :index
+        expect(response).to render_template(:index)
       end
 
       it 'can search an article by title-content' do
