@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.3'
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -62,7 +62,7 @@ group :development, :test do
   gem 'brakeman'
   gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   # get a debugger console
   gem 'pry-rails'
   gem 'rspec-rails'

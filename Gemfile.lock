@@ -6,6 +6,14 @@ GIT
     acts-as-taggable-on (5.0.0)
       activerecord (~> 5.0)
 
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: 3f72057a7522849243c4c7fa8d0527580588cbcf
+  branch: master
+  specs:
+    faker (2.13.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -100,8 +108,6 @@ GEM
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
-    faker (2.13.0)
-      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
@@ -296,7 +302,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_bot_rails
-  faker
+  faker!
   font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
@@ -305,7 +311,7 @@ DEPENDENCIES
   pg_search
   pry-rails
   puma (~> 3.7)
-  rails (~> 5.2.1)
+  rails (~> 5.2.3)
   rails-controller-testing
   redcarpet
   rspec-rails
