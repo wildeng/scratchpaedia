@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ControllerMacros
   attr_reader :user
 

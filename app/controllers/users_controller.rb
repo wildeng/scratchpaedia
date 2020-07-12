@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # permitting more params for devise
 class UsersController < Devise::RegistrationsController
   private

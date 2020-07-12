@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 6.0.3.2'
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 5.0.0'
 # Turbolinks makes navigating your web application faster.
 # Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -34,9 +34,7 @@ gem 'devise'
 # state machine
 gem 'aasm'
 # tags to identify articles
-#gem 'acts-as-taggable-on', '~> 4.0'
-# Swicth to temporary fork for 5.2 issues
-gem 'acts-as-taggable-on', git: 'https://github.com/Fodoj/acts-as-taggable-on.git', branch: 'rails-5.2'
+gem 'acts-as-taggable-on', '~> 6.0'
 # style using bootsrap
 gem 'bootstrap'
 gem 'jquery-rails'
@@ -62,7 +60,7 @@ group :development, :test do
   gem 'brakeman'
   gem 'capybara', '~> 2.13'
   gem 'factory_bot_rails'
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+  gem 'faker'
   # get a debugger console
   gem 'pry-rails'
   gem 'rspec-rails'
@@ -72,13 +70,14 @@ end
 group :development do
   # Access an IRB console on exception pages or by using
   # <%= console %> anywhere in the code.
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the
   # background. Read more: https://github.com/rails/spring
-  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-faker'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
 end
 
 group :test do

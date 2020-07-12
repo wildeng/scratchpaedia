@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Application common helpers
 module ApplicationHelper
   # rendering coderay syntax highlighter
@@ -5,6 +7,7 @@ module ApplicationHelper
     # overriding RedCarpet block_code callback
     def block_code(code, language)
       return code if language.blank?
+
       CodeRay.scan(code, language).div
     end
   end
