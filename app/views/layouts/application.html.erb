@@ -10,19 +10,12 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <main role="main" class="container">
+    <main role="main" class="container wiki-container">
         <div class="notifications">
           <%= flash_messages %>
         </div>
-        <div class="row">
-          <div class="col-sm">
-          </div>
-          <div class="col-sm-8 blog-main">
-            <%= yield %>
-          </div>
-          <div class="col-sm">
-            <!-- <%=render 'articles/tag_cloud' %> -->
-          </div>
+        <div class="row wiki-content">
+          <%= yield %>
         </div>
     </main>
   </body>

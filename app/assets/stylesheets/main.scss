@@ -1,0 +1,34 @@
+.wiki-container {
+  display: flex;
+}
+
+@media (min-width: 800px) {
+  .wiki-content {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 16px;
+  }
+
+  .starred-articles{
+    align-self: start;
+  }
+
+  .latest-articles {
+    align-self: stretch;
+  }
+
+  .tag-cloud {
+    align-self: start;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
