@@ -1,22 +1,29 @@
 <div class="header">
   <div class="header-menu">
-    <h1><a href="<%= root_path%>">Scratchpaedia</a></h1>
-    <ul class="">
+    <div class="logo">
+      <h1><a href="<%= root_path%>">Scratchpaedia</a></h1>
+    </div>
+    <div class="toggle"><a href="#"><i class="fas fa-bars" data-target-id="menu" data-turbolinks="false"></i></a></div>
+    <ul id="menu" class="menu">
       <% if current_user %>
-        <li class=""><a class="" href="<%= destroy_user_session_path %>"><%= I18n.t('menubar.logout') %></a></li>
-        <li class=""><a class="" href="<%= new_article_path %>"><%= I18n.t('menubar.add_article') %></a></li>
-        <li class=""><a class="" href="<%= articles_my_articles_path %>"><%= I18n.t('menubar.my_posts') %></a></li>
-        <li class=""><a class="" href="<%= edit_user_registration_path %>"><%= I18n.t('menubar.change_password') %></a></li>
+        <li class="item"><a href="<%= destroy_user_session_path %>"><%= I18n.t('menubar.logout') %></a></li>
+        <li class="item"><a href="<%= new_article_path %>"><%= I18n.t('menubar.add_article') %></a></li>
+        <li class="item"><a href="<%= articles_my_articles_path %>"><%= I18n.t('menubar.my_posts') %></a></li>
+        <li class="item"><a href="<%= edit_user_registration_path %>"><%= I18n.t('menubar.change_password') %></a></li>
       <% else %>
-        <li class=""><a class="" href="<%= new_user_session_path %>"><%= I18n.t('menubar.login') %></a></li>
-        <li class=""><a class="" href="<%= new_user_registration_path %>"><%= I18n.t('menubar.register') %></a></li>
+        <li class="item"><a href="<%= new_user_session_path %>"><%= I18n.t('menubar.login') %></a></li>
+        <li class="item"><a href="<%= new_user_registration_path %>"><%= I18n.t('menubar.register') %></a></li>
       <% end %>
     </ul>
   </div>
   <div class="header-search">
-    <form action="<%= articles_search_articles_path %>" method="get" class="form-inline">
-      <input class="form-control mr-sm-2" id="article_fulltext" name="article[fulltext]" type="text" placeholder="<%= I18n.t('menubar.search') %>" aria-label="Search">
-      <input type="submit" class="btn my-2 my-sm-0 nav-link search-articles" type="submit" value="<%= I18n.t('menubar.search') %>"/>
+    <form action="<%= articles_search_articles_path %>" method="get" class="search-form">
+      <div class="search-wrapper">
+        <input class="search-field" id="article_fulltext" autofocus="autofocus" name="article[fulltext]" type="text" placeholder="<%= I18n.t('menubar.search') %>" aria-label="Search">
+      </div>
+      <button type="submit" class="search-button">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
     </form>
   </div>
 </div>

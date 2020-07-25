@@ -1,12 +1,69 @@
 .wiki-container {
   display: flex;
+  font-size: 100%;
+  flex-direction: column;
 }
 
-@media (min-width: 800px) {
+@media(max-width: 799px){
+  .header-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-menu li a {
+    display: block;
+    padding: 1rem;
+  }
+
+  .menu {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    right: 1.5rem;
+    top: 5rem;
+    overflow: auto;
+    max-width: 70%;
+    background-color: #f9f9f9;
+    align-self: flex-end;
+  }
+
+  .item {
+    width: 100%;
+    text-align: left;
+    font-size: 1.25rem;
+  }
+
+  .search-form {
+    display: flex;
+    max-width: 100%;
+  }
+
+  .search-wrapper{
+    width: 100%;
+    font-size: 1rem;
+    height: 1.5rem;
+    padding: 8px 12px 8px 12px;
+  }
+
+  .search-field {
+    border: 0;
+    width: 95%;
+    font-size: 1.3rem;
+  }
+
+  .logo {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+@media(min-width: 800px) {
   .wiki-content {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 16px;
+    grid-gap: 1rem;
   }
 
   .starred-articles{
@@ -20,15 +77,78 @@
   .tag-cloud {
     align-self: start;
   }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .header-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 0.1;
+    margin: 0 1rem 0 auto;
+    align-items: center;
+  }
+
+  .toggle {
+    display: none;
+  }
+
+  .search-form {
+    line-height: 2rem;
+    display: flex;
+    height: 3rem;
+    margin: auto auto;
+  }
+
+  .search-wrapper {
+    font-size: 2rem;
+    width: 80%;
+    margin-left: auto;
+  }
+
+  .search-button {
+    margin-right: auto;
+  }
+
+  .search-field {
+    border: 0;
+    padding-left: 1rem;
+    font-size: 2rem;
+    width: 95%;
+  }
 }
 
 .header {
   display: flex;
   flex-direction: column;
+  background-color: #f9f9f9;
 }
 
-.header-menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.search-wrapper {
+  border: 1px solid #6ea7f0;
+  background-color: #FFFFFF;
+  border-radius:0.2rem 0 0 0.2rem;
+}
+
+.search-button {
+  background-color: #6ea7f0;
+  border: 1px solid #6ea7f0;
+  border-radius:0 0.2rem 0.2rem 0;
+  cursor: pointer;
+}
+
+.search-field:focus {
+  outline: none;
 }

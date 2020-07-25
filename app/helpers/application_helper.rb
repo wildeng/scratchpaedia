@@ -44,7 +44,7 @@ module ApplicationHelper
         content_tag(
           :div,
           message,
-          class: "alert #{bootstrap_class_for(msg_type)} fade show"
+          class: "#{bootstrap_class_for(msg_type)}"
         ) do
           concat content_tag(
             :button,
@@ -53,7 +53,11 @@ module ApplicationHelper
             data: { dismiss: 'alert' },
             aria: { label: 'Close' }
           )
-          concat message
+          concat content_tag(
+            :span,
+            message,
+            class: 'alert-message'
+          )
         end
       )
     end

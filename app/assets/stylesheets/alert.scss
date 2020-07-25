@@ -1,0 +1,46 @@
+.notifications{
+  overflow: visible;
+  width: 100%;
+  height: 2rem;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  margin-top: inherit;
+  color: #f9f9f9;
+}
+
+.alert-message {
+  position: relative;
+  top: 25%;
+}
+
+[class^="alert-"] {
+  text-align: center;
+  height: 100%;
+  margin-top: 0.5rem;
+  border-radius: 0.2rem;
+  color: #f9f9f9;
+}
+
+[class*="warning"] {
+  background-color: #ffb700;
+}
+
+[class*="info"] {
+  background-color: #1476dd;
+}
+
+[class*="success"] {
+  background-color: rgb(31,156,49);
+}
+
+[class*="danger"] {
+  background-color: rgb(212,27,50);
+}
