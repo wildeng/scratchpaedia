@@ -1,0 +1,25 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-control {
+  border: 1px solid #6ea7f0;
+  background-color: #FFFFFF;
+  border-radius:0.2rem;
+}
+
+.form-group {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: last baseline;
+  padding: 0.5rem;
+}
+
+.input-group-addon {
+  border: 1px solid #6ea7f0;
+  background-color: #FFFFFF;
+  border-radius:0.2rem;
+}

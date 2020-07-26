@@ -2,6 +2,7 @@
   display: flex;
   font-size: 100%;
   flex-direction: column;
+  margin-top: 2rem;
 }
 
 @media(max-width: 799px){
@@ -47,7 +48,7 @@
     padding: 8px 12px 8px 12px;
   }
 
-  .search-field {
+  [class^="form-"] {
     border: 0;
     width: 95%;
     font-size: 1.3rem;
@@ -117,7 +118,7 @@
     margin-right: auto;
   }
 
-  .search-field {
+  [class^="form-"] {
     border: 0;
     padding-left: 1rem;
     font-size: 2rem;
@@ -149,6 +150,6 @@
   cursor: pointer;
 }
 
-.search-field:focus {
+.form-search-field:focus {
   outline: none;
 }

@@ -1,28 +1,30 @@
-<div class="starred-articles">
-  <h1>Starred Articles</h1>
+<div class="wiki-content">
+  <div class="starred-articles">
+    <h1>Starred Articles</h1>
 
-  <div class="post_list">
-    <%= render @articles %>
+    <div class="post_list">
+      <%= render @articles %>
+    </div>
+
+    <div class="flickr_pagination">
+      <%= will_paginate @articles %>
+    </div>
   </div>
 
-  <div class="flickr_pagination">
-    <%= will_paginate @articles %>
+  <div class="latest-articles">
+    <h1><%= I18n.t('article.page_title') %></h1>
+
+    <div class="post_list">
+      <%= render @articles %>
+    </div>
+
+    <div class="flickr_pagination">
+      <%= will_paginate @articles %>
+    </div>
   </div>
-</div>
 
-<div class="latest-articles">
-  <h1><%= I18n.t('article.page_title') %></h1>
-
-  <div class="post_list">
-    <%= render @articles %>
+  <div class="tag-cloud">
+    <h1>Tag cloud</h1>
+    <%=render 'articles/tag_cloud' %>
   </div>
-
-  <div class="flickr_pagination">
-    <%= will_paginate @articles %>
-  </div>
-</div>
-
-<div class="tag-cloud">
-  <h1>Tag cloud</h1>
-  <%=render 'articles/tag_cloud' %> 
 </div>
