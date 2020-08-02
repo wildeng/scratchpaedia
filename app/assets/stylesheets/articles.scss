@@ -10,17 +10,8 @@
   .l { font-size: 1.8rem; }
 }
 
-a {
-  font-family: 'Ubuntu';
-}
-
 h1 a {
     color: #000000;
-    font-family: 'Ubuntu';
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Ubuntu', cursive;
 }
 
 body {
@@ -94,7 +85,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', end
     position: relative;
     padding: 1rem;
     font-weight: 500;
-    font-family: 'Ubuntu', cursive;
     //color: #cdddeb;
     color: #0056b3 !important
 }

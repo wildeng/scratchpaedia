@@ -1,3 +1,6 @@
+body {
+  font-family: Lekton, sans-serif;
+}
 .wiki-container {
   display: flex;
   font-size: 100%;
@@ -124,6 +127,16 @@
     font-size: 2rem;
     width: 95%;
   }
+}
+
+.btn-main {
+  background-color: #6ea7f0;
+  border: 1px solid #6ea7f0;
+  border-radius: 0.2rem;
+  width: 100%;
+  height: 2rem;
+  font-size: 1rem;
+  color: #FFFFFF;
 }
 
 .header {
