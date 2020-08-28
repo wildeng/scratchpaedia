@@ -12,12 +12,15 @@
 
 .form-group {
   margin: auto;
-  display: flex;
-  flex-direction: row;
   align-items: last baseline;
   padding: 0.5rem;
 }
 
 .input-group-addon {
   background-color: #FFFFFF;
+}
+
+.shared-links {
+  padding: 0.5rem;
+  margin: auto;
 }
