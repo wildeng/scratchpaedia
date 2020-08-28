@@ -1,7 +1,4 @@
 AllCops:
-  Include:
-    - '**/Rakefile'
-    - '**/config.ru'
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
@@ -18,15 +15,16 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
-  enabled: 80
+  Enabled: 80
   Exclude:
     - "**/*_spec.rb"
 Metrics/CyclomaticComplexity:
   Max: 20
 Metrics/ClassLength:
   Enabled: false
-Style/AccessorMethodName:
-  Enabled: false
+Naming:
+  Style/AccessorMethodName:
+    Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
 Metrics/PerceivedComplexity:

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # main article controller
 class ArticlesController < ApplicationController
   protect_from_forgery prepend: true

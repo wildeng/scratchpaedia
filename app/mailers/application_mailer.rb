@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Application mailer, it manages some mailing settings
 class ApplicationMailer < ActionMailer::Base
   default from: 'from@example.com'

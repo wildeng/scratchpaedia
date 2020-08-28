@@ -10,17 +10,8 @@
   .l { font-size: 1.8rem; }
 }
 
-a {
-  font-family: 'Ubuntu';
-}
-
 h1 a {
-    color: #F6F6F6;
-    font-family: 'Ubuntu';
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Ubuntu', cursive;
+    color: #000000;
 }
 
 body {
@@ -81,9 +72,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', end
 .notice {
   padding: 4rem 2rem;
 }
-.notifications{
-  overflow: visible;
-}
 
 .field_with_errors{
   color: #dc3545 !important;
@@ -97,7 +85,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', end
     position: relative;
     padding: 1rem;
     font-weight: 500;
-    font-family: 'Ubuntu', cursive;
     //color: #cdddeb;
     color: #0056b3 !important
 }

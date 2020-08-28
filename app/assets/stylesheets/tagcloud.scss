@@ -1,0 +1,23 @@
+#tag_cloud .l {
+  font-size: 1.6rem;
+  display: inline-block;
+  padding: 0.5rem;
+  margin: 1rem;
+  background-color: #6ea7f0;;
+  border: 1px solid 1px solid #6ea7f0;;
+  border-radius: 0.2rem;
+}
+
+#tag_cloud a:hover,
+#tag_cloud a:focus {
+	background: #3287f2;
+  border: 1px solid #3287f2;
+	color: white;
+	transform: scale(1.1);
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}

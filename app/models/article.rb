@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 # model for articles
 class Article < ApplicationRecord
   include AASM
   # setting up postgres full text search
-  include PgSearch
+  include PgSearch::Model
   pg_search_scope :search_by_full_text,\
                   against: %i[title content],\
                   associated_against: { tags: :name }

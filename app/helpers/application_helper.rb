@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Application common helpers
 module ApplicationHelper
   # rendering coderay syntax highlighter
@@ -5,6 +7,7 @@ module ApplicationHelper
     # overriding RedCarpet block_code callback
     def block_code(code, language)
       return code if language.blank?
+
       CodeRay.scan(code, language).div
     end
   end
@@ -41,7 +44,7 @@ module ApplicationHelper
         content_tag(
           :div,
           message,
-          class: "alert #{bootstrap_class_for(msg_type)} fade show"
+          class: "#{bootstrap_class_for(msg_type)}"
         ) do
           concat content_tag(
             :button,
@@ -50,7 +53,11 @@ module ApplicationHelper
             data: { dismiss: 'alert' },
             aria: { label: 'Close' }
           )
-          concat message
+          concat content_tag(
+            :span,
+            message,
+            class: 'alert-message'
+          )
         end
       )
     end

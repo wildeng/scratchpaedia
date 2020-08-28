@@ -37,3 +37,5 @@ config/config.yml
 # ignore rubymine
 .idea
 .rspec
+
+/config/master.key
