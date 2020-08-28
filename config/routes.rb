@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :articles, only: %i[new create edit update destroy]
   end
 
+  mount EasyMonitor::Engine => '/easy_monitor'
+  
   get 'articles/search_articles', to: 'articles#search_articles'
   get 'articles/my_articles', to: 'articles#my_articles'
   resources :articles, only: %i[index show]

@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # use devise for authentication
 gem 'devise'
+gem 'easy_monitor', :git => 'git://github.com/wildeng/easy_monitor.git', :tag => "v0.2.0"
 # state machine
 gem 'aasm'
 # tags to identify articles

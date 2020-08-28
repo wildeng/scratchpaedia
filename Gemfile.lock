@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/wildeng/easy_monitor.git
+  revision: 6a314c8df8411f6550c2b9dc41f3884b30d1def7
+  tag: v0.2.0
+  specs:
+    easy_monitor (1.0)
+      influxdb
+      rails (~> 6.0.0)
+      redis
+      rotp
+      sidekiq
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -90,6 +102,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
+    connection_pool (2.2.3)
     crass (1.0.6)
     database_cleaner (1.8.5)
     devise (4.7.2)
@@ -116,6 +129,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
+    influxdb (0.8.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jquery-rails (4.4.0)
@@ -195,11 +209,13 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.5.0)
+    redis (4.2.1)
     regexp_parser (1.7.1)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
+    rotp (6.1.0)
     rspec-core (3.9.2)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.2)
@@ -256,6 +272,10 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sidekiq (6.1.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     simplecov (0.18.5)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -310,6 +330,7 @@ DEPENDENCIES
   coffee-rails (~> 5.0.0)
   database_cleaner
   devise
+  easy_monitor!
   factory_bot_rails
   faker
   font-awesome-rails
