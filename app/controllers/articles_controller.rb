@@ -6,10 +6,15 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: %i[
     index show tagged_articles search_articles
   ]
+  before_action :generate_tag_cloud
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    @articles = Article.published_posts.paginate(page: params[:page])
+    published_posts = Article.published_posts
+    @articles = published_posts.paginate(page: params[:page])
+    @articles = published_posts.tagged_with(
+      params[:tag]
+    ).paginate(page: params[:page]) if params[:tag]
   end
 
   def show
@@ -77,6 +82,10 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+  def generate_tag_cloud
+    @tags = Article.published_posts.tag_counts
+  end
 
   def route_to
     params[:route_to].keys.first.to_sym
